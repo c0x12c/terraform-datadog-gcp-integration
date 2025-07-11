@@ -8,7 +8,8 @@ Terraform module which creates Datadog GCP integration and service account resou
 
 ```hcl
 module "datadog_gcp_integration" {
-  source  = "github.com/spartan-stratos/terraform-modules//datadog/gcp-integration?ref=v0.1.22"
+  source  = "c0x12c/gcp-integration/datadog"
+  version = "1.0.0"
 
   datadog_account_id   = "datadog"
 }
