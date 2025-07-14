@@ -1,6 +1,6 @@
 module "service_account" {
   source  = "c0x12c/service-account/gcp"
-  version = "0.1.22"
+  version = "1.0.0"
 
   service_account_id = var.datadog_account_id
   roles              = var.datadog_roles
