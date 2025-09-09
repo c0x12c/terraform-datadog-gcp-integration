@@ -26,5 +26,5 @@ resource "datadog_integration_gcp_sts" "this" {
   host_filters             = [var.host_filters]
   automute                 = var.automute
   is_cspm_enabled          = var.is_cspm_enabled
-  metric_namespace_configs = var.gcp_services_enabled
+  metric_namespace_configs = var.enabled_services == null ? local.enabled_services : var.enabled_services
 }
