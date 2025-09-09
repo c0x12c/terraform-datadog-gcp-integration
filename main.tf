@@ -7,7 +7,7 @@ module "service_account" {
 }
 
 /**
-Thí block grants token creator role to the Datadog principal account.
+This block grants token creator role to the Datadog principal account.
 https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
  */
 resource "google_service_account_iam_member" "this" {
@@ -22,8 +22,9 @@ This can be used to create and manage Datadog - Google Cloud Platform integratio
 https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_gcp_sts
  */
 resource "datadog_integration_gcp_sts" "this" {
-  client_email    = module.service_account.client_email
-  host_filters    = [var.host_filters]
-  automute        = var.automute
-  is_cspm_enabled = var.is_cspm_enabled
+  client_email             = module.service_account.client_email
+  host_filters             = [var.host_filters]
+  automute                 = var.automute
+  is_cspm_enabled          = var.is_cspm_enabled
+  metric_namespace_configs = var.gcp_services_enabled
 }
