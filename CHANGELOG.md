@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0]() (2025-09-08)
+
+### Breaking changes
+
+* Changed default cloud metric collection to enable only key services by using metric_namespace_configs
+
 ## [1.0.1]() (2025-07-15)
 
 ### Features

@@ -32,3 +32,21 @@ variable "is_cspm_enabled" {
   type        = bool
   default     = false
 }
+
+# curl https://api.us5.datadoghq.com/api/v2/integration/gcp/accounts \
+#     -H "DD-API-KEY: ${DD-API-KEY}" \
+#     -H "DD-APPLICATION-KEY: ${DD-APPLICATION-KEY}"
+
+variable "enabled_services" {
+  description = "Values to enable GCP services in Datadog integration."
+  type        = list(string)
+  default = [
+    "redis",
+    "memcache",
+    "memorystore",
+    "cloudsql",
+    "dbinsights",
+    "kubernetes",
+    "loadbalancing",
+  ]
+}
