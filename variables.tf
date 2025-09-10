@@ -39,9 +39,14 @@ variable "is_cspm_enabled" {
 
 variable "enabled_services" {
   description = "Values to enable GCP services in Datadog integration."
-  type = list(object({
-    id       = string
-    disabled = bool
-  }))
-  default = null
+  type        = list(string)
+  default = [
+    "redis",
+    "memcache",
+    "cloudsql",
+    "dbinsights",
+    "kubernetes",
+    "loadbalancing",
+    "kubernetes"
+  ]
 }

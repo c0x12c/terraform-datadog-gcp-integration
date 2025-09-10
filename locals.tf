@@ -1,5 +1,13 @@
 locals {
+
   enabled_services = [
+    for svc in local.datadog_services : {
+      id       = svc.id
+      disabled = contains(var.enabled_services, svc.id) ? false : true
+    }
+  ]
+
+  datadog_services = [
     {
       "id" : "actions",
       "disabled" : true
@@ -94,7 +102,7 @@ locals {
     },
     {
       "id" : "cloudsql",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "cloudtasks",
@@ -154,7 +162,7 @@ locals {
     },
     {
       "id" : "dbinsights",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "dialogflow",
@@ -262,7 +270,7 @@ locals {
     },
     {
       "id" : "kubernetes",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "livestream",
@@ -270,7 +278,7 @@ locals {
     },
     {
       "id" : "loadbalancing",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "logging",
@@ -294,11 +302,11 @@ locals {
     },
     {
       "id" : "memcache",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "memorystore",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "metastore",
@@ -370,7 +378,7 @@ locals {
     },
     {
       "id" : "redis",
-      "disabled" : false
+      "disabled" : true
     },
     {
       "id" : "retail",
