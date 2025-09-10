@@ -43,10 +43,10 @@ variable "enabled_services" {
   default = [
     "redis",
     "memcache",
+    "memorystore",
     "cloudsql",
     "dbinsights",
     "kubernetes",
     "loadbalancing",
-    "kubernetes"
   ]
 }
